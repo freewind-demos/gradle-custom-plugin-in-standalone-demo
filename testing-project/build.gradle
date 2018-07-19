@@ -1,0 +1,14 @@
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'freewind.demos:gradle-custom-plugin-in-standalone-demo:0.1.0'
+    }
+}
+
+apply plugin: 'gradle-custom-plugin-in-standalone-demo'
+
+hello {
+    message = 'Hello, HelloPlugin'
+}

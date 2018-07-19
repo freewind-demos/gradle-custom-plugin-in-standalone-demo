@@ -1,22 +1,10 @@
-class HelloPluginExtension {
-    String message = 'Hello from HelloPlugin'
-}
+apply plugin: 'groovy'
+apply plugin: 'maven'
 
-class HelloPlugin implements Plugin<Project> {
-    void apply(Project project) {
-        HelloPluginExtension extension = project.extensions.create('hello', HelloPluginExtension)
-        project.task('hello') {
-            doLast {
-                println(extension.message)
-            }
-        }
-    }
-}
+group 'freewind.demos'
+version '0.1.0'
 
-apply plugin: HelloPlugin
-
-// hello.message = "configured hello"
-// or
-hello {
-    message = "configured hello"
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
 }
