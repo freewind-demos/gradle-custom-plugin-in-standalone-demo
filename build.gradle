@@ -1,11 +1,22 @@
+class HelloPluginExtension {
+    String message = 'Hello from HelloPlugin'
+}
+
 class HelloPlugin implements Plugin<Project> {
     void apply(Project project) {
+        HelloPluginExtension extension = project.extensions.create('hello', HelloPluginExtension)
         project.task('hello') {
             doLast {
-                println("Hello from HelloPlugin")
+                println(extension.message)
             }
         }
     }
 }
 
 apply plugin: HelloPlugin
+
+// hello.message = "configured hello"
+// or
+hello {
+    message = "configured hello"
+}
